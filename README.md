@@ -2,13 +2,13 @@
 
 Sistema de gerenciamento de pedidos multicanal desenvolvido com FastAPI, SQLAlchemy e SQLite.
 
-## 🚀 Como executar o projeto localmente:
+## Como executar o projeto localmente:
 1. Ative o ambiente virtual: `.venv\Scripts\activate` (Windows) ou `source .venv/bin/activate` (Mac/Linux).
 2. Instale as dependências: `pip install fastapi[all] sqlalchemy passlib[bcrypt]`
 3. Execute o servidor: `python main.py`
 4. A documentação automática estará em: `http://127.0.0.1:8000/docs`
 
-## 🧪 Como executar os testes (Ordem Sugerida):
+## Como executar os testes (Ordem Sugerida):
 
 Para testar a API, utilize o arquivo `Lanchonete.postman_collection.json` incluído neste repositório. Importe-o no Postman e siga a ordem:
 
