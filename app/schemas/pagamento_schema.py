@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 class PagamentoInput(BaseModel):
     pedido_id: int
-    numero_cartao_mock: str  # Simulação: se digitar '0000' dá erro, o resto aprova
+    numero_cartao_mock: str 
     valor: float
 
 class PagamentoResponse(BaseModel):
