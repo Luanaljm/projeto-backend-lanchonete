@@ -25,7 +25,7 @@ def listar_pedidos(db: Session = Depends(get_db)):
 
 
 from app.schemas.pagamento_schema import PagamentoInput, PagamentoResponse
-import uuid  # Para gerar um ID de transação fake
+import uuid
 
 
 
