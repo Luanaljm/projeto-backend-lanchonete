@@ -5,7 +5,7 @@ class UsuarioCreate(BaseModel):
     nome: str
     email: str
     senha: str
-    aceita_termos: bool  # Para LGPD
+    aceita_termos: bool
 
 
 class UsuarioResponse(BaseModel):
