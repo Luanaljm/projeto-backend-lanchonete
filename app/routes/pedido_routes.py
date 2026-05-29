@@ -4,7 +4,6 @@ from app.database.db import get_db
 from app.models.pedido import Pedido
 from app.schemas.pedido_schema import PedidoCreate, PedidoResponse
 
-# O erro estava na linha abaixo. Use exatamente assim:
 router = APIRouter(prefix="/pedidos", tags=["Pedidos"])
 
 @router.post("/", response_model=PedidoResponse)
@@ -29,17 +28,14 @@ from app.schemas.pagamento_schema import PagamentoInput, PagamentoResponse
 import uuid  # Para gerar um ID de transação fake
 
 
-# ... (mantenha o que já existe acima e adicione este aqui embaixo)
 
 @router.post("/pagar", response_model=PagamentoResponse)
 def pagar_pedido(pagamento: PagamentoInput, db: Session = Depends(get_db)):
-    # 1. Busca o pedido no banco
     pedido_no_banco = db.query(Pedido).filter(Pedido.id == pagamento.pedido_id).first()
 
     if not pedido_no_banco:
         raise HTTPException(status_code=404, detail="Pedido não encontrado")
 
-    # 2. Simulação de Regra de Negócio (Mock)
     if pagamento.numero_cartao_mock == "0000":
         return PagamentoResponse(
             sucesso=False,
@@ -47,7 +43,6 @@ def pagar_pedido(pagamento: PagamentoInput, db: Session = Depends(get_db)):
             transacao_id="0"
         )
 
-    # 3. Se aprovado, atualiza o status do pedido (Cozinha -> Pronto)
     pedido_no_banco.status = "PAGO - EM PREPARAÇÃO"
     db.commit()
 
