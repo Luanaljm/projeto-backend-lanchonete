@@ -20,5 +20,4 @@ class PedidoResponse(PedidoCreate):
     id: int
     status: str
 
-    # Isso aqui remove o aviso amarelo do terminal:
     model_config = ConfigDict(from_attributes=True)
